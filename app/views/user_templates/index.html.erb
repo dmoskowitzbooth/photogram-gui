@@ -6,7 +6,7 @@
   <input id="username" type="text" name="the_username">
 
 
-<button>
+<button type="submit">
 Add user
 </button>
 </form>
@@ -37,7 +37,7 @@ Add user
       <%= user.username %>
     </td>
     <td>
-      <a href="/users/<%= user.id %>">
+      <a href="/users/<%= user.username %>">
         Show details
       </a>
     </td>
