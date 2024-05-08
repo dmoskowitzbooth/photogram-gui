@@ -36,11 +36,7 @@ Add user
     <td>
       <%= user.username %>
     </td>
-    <td>
-      <a href="/users/<%= user.username %>">
-        Show details
-      </a>
-    </td>
+get("/users/:username", { :controller => "users", :action => "show" })
   </tr>
   <% end %>
 </table>
