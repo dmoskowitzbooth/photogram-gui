@@ -1,0 +1,36 @@
+<h1> List of photos </h1>
+
+<table border="1">
+  <tr>
+    <th>
+      Image
+    </th>
+
+    <th>
+      Caption
+    </th>
+
+ <th>
+      Owner
+    </th>
+ <th>
+      Posted
+    </th>
+    
+
+    <th>
+    </th>
+  </tr>
+
+  <% @list_of_photos.each do |photo| %>
+  <tr>
+    </td>
+      <td><img src="<%=photo.image %>" style="width:250px;"></td>
+   <td>
+      <%= photo.caption %>
+    </td>
+
+ 
+  </tr>
+  <% end %>
+</table>
