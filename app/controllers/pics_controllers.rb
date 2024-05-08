@@ -1,4 +1,4 @@
-class PhotosController < ApplicationController
+class PicsController < ApplicationController
 
   def index
     pall=Photo.all
