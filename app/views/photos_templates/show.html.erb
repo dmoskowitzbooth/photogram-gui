@@ -28,7 +28,7 @@
   <dt>
     Edit photo
   </dt>
-  <dl>
+  </dl>
 
 <form action="/update_image_record/<%= @the_photo.image%>" method="post">
 
@@ -52,3 +52,23 @@ Update photo
     </dd>
 
 <h1>Comments</h1>
+
+  <table border="1">
+  <tr>
+  <th>Commenter </th>
+  <th>Comment </th>
+  <th>Posted </th>
+  </tr>
+
+<% @the_comment.own_photos.each do |a_comment| %>
+    <tr>
+  <td><img src="<%=a_photo.image %>" style="width:250px;"></td>
+  <td><%=a_photo.poster.username%> </td>
+  <td><%=a_photo.caption%> </td>
+  <td><%=a_photo.created_at%></td>
+  <td>Show details</td>
+  </tr>
+  <%end%>
+
+
+<h4>Add a new comment</h4>
