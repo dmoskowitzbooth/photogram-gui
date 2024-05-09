@@ -1,0 +1,54 @@
+<h1> Photo Details </h1>
+
+<dl>
+  <dt>
+    Image
+  </dt>
+  <dd>
+    <td><img src="<%=@the_photo.image %>" style="width:250px;"></td>
+  </dd>
+    <dt>
+    Caption
+  </dt>
+  <dd>
+    <td><%=@the_photo.caption %></td>
+  </dd>
+      <dt>
+    Owner
+  </dt>
+  <dd>
+    <td><%=@the_photo.poster.username %></td>
+  </dd>
+        <dt>
+    Posted
+  </dt>
+  <dd>
+    <td><%=@the_photo.created_at %></td>
+  </dd>
+  <dt>
+    Edit photo
+  </dt>
+  <dl>
+
+<form action="/update_image_record/<%= @the_photo.image%>" method="post">
+
+<label for="image">Image</label>
+<input id="image" type="text" name="the_image" value="<%= @the_photo.image %>">
+<label for="caption">Caption</label>
+<input id="caption" type="text" name="the_caption" value="<%= @the_photo.caption %>">
+
+<button type="submit">
+Update photo
+</button>
+</form>
+
+  <dt>
+    Delete photo
+  </dt>
+   <dd>
+      <a href="/photos/<%= @the_photo.id %>">
+        Delete this photo
+      </a>
+    </dd>
+
+<h1>Comments</h1>
