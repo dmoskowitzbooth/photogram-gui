@@ -35,7 +35,7 @@
 <label for="image">Image</label>
 <input id="image" type="text" name="the_image" value="<%= @the_photo.image %>">
 <label for="caption">Caption</label>
-<input id="caption" type="text" name="the_caption" value="<%= @the_photo.caption %>">
+<textarea id="caption" type="text" name="the_caption" value="<%= @the_photo.caption %>"></textarea>
 
 <button type="submit" class="btn btn-primary">
 Update photo
@@ -51,6 +51,7 @@ Update photo
       </a>
     </dd>
 
+
 <h1>Comments</h1>
 
   <table border="1">
@@ -62,11 +63,27 @@ Update photo
 
 <% @list_of_comments.each do |a_comment| %>
     <tr>
-  <td><%=a_comment.author_id %></td>
+  <td><%=a_comment.commenter.username%></td>
   <td><%=a_comment.body %></td>
   <td><%=a_comment.created_at %></td>
   </tr>
   <%end%>
+</table>
 
-
+<div>
 <h4>Add a new comment</h4>
+</div>
+
+<form action="/add_comment/<%= @the_photo.id%>" method="post">
+
+<label for="id">Photo ID</label>
+<input id="id" type="text" name="the_photo_id" value="<%= @the_photo.id %>">
+<label for="author">Author ID</label>
+<input id="author" type="text" name="the_author" placeholder="Enter your author ID">
+<label for="comment">Comment</label>
+<textarea id="comment" type="text" name="the_comment" placeholder="Enter a comment..."></textarea>
+
+<button type="submit" class="btn btn-primary">
+Add comment
+</button>
+</form>
