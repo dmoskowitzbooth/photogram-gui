@@ -21,4 +21,24 @@ end
     render({ :template => "photos_templates/show"})
   end
 end
+
+def create
+  p=Photo.new
+  p.image=params.fetch("the_image")
+  p.caption=params.fetch("the_caption")
+  p.owner_id=params.fetch("the_owner")
+  p.save
+
+  redirect_to( "/photos/#{p.id}")
+end
+
+def destroy
+  the_id = params.fetch("path_id")
+  @the_photo = Photo.find(the_id)
+
+  @the_photo.destroy
+
+  redirect_to("/photos", { :notice => "Movie deleted successfully."})
+end
+
 end

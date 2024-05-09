@@ -21,7 +21,18 @@ end
 def create
   u=User.new
   u.username=params.fetch("the_username")
+  u.save
 
-  redirect_to({ :template => "user_templates/show"})
+  redirect_to( "/users/#{u.username}")
+end
+
+def update
+  the_user=params.fetch("username")
+  user=User.find(the_user)
+
+  user.username=params.fetch("the_username")
+  user.save
+
+  redirect_to( "/users/#{user.username}")
 end
 end
