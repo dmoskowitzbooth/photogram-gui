@@ -12,8 +12,8 @@ end
     @the_photo = matching_photo.at(0)
 
     the_id=params.fetch("photo_id")
-    matching_comment = Comment.where({ :photo => the_id })
-    @the_comment = matching_photo.at(0)
+    call=Comment.where({ :photo_id => the_photo })
+    @list_of_comments=call.order({ :created_at=> :desc})
 
     if the_photo==nil
         redirect_to("/")

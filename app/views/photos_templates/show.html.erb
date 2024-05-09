@@ -37,7 +37,7 @@
 <label for="caption">Caption</label>
 <input id="caption" type="text" name="the_caption" value="<%= @the_photo.caption %>">
 
-<button type="submit">
+<button type="submit" class="btn btn-primary">
 Update photo
 </button>
 </form>
@@ -60,13 +60,11 @@ Update photo
   <th>Posted </th>
   </tr>
 
-<% @the_comment.own_photos.each do |a_comment| %>
+<% @list_of_comments.each do |a_comment| %>
     <tr>
-  <td><img src="<%=a_photo.image %>" style="width:250px;"></td>
-  <td><%=a_photo.poster.username%> </td>
-  <td><%=a_photo.caption%> </td>
-  <td><%=a_photo.created_at%></td>
-  <td>Show details</td>
+  <td><%=a_comment.author_id %></td>
+  <td><%=a_comment.body %></td>
+  <td><%=a_comment.created_at %></td>
   </tr>
   <%end%>
 
